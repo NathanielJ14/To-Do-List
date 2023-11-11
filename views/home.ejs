@@ -17,18 +17,19 @@
             <h2 class="mb-3">Your Tasks</h2>
             <ul class="list-group"></ul>
                 <% for (let todo of todos) { %>
-                    <li class="row">
-                        <div class="col">
-                            <input class="form-check-input me-1 checkbox" type="checkbox" id="<%= todo._id %>" onchange="toggleStrikethrough()">
-                            <label class="form-check-label" for="<%= todo._id %>" id="label"><%= todo.name %></label>
+                    <li class="d-flex flex-row justify-content-between mb-2">
+                        <div class="">
+                            <input class="form-check-input checkbox me-3 " type="checkbox" id="<%= todo._id %>" onchange="toggleStrikethrough()">
+                            <label class="form-check-label fs-5" for="<%= todo._id %>" id="label"><%= todo.name %></label>
                         </div>
 
-                        <div class="col d-flex justify-content-end">
+                        <div class="d-flex justify-content-end">
                             <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-outline-danger btn-sm">Delete</button>
                             </form>
                         </div>
                     </li>
+                    <hr>
                 <% } %>
             </ul>
         </div>
