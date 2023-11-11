@@ -55,8 +55,18 @@
             } else {
                 label.classList.remove('strikethrough');
             }
-    });
-}
+        });
+    }
+
+
+    function colorChange() {
+        var color = document.querySelector('#colorPick').value;
+        var button = document.querySelector('#colorButton');
+        var background = document.querySelector('body')
+
+        background.style.backgroundColor = color;
+    }
+
     </script>
 </body>
 
