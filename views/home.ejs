@@ -19,7 +19,7 @@
                 <% for (let todo of todos) { %>
                     <li class="row">
                         <div class="col">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="<%= todo._id %>" onchange="toggleStrikethrough()" >
+                            <input class="form-check-input me-1 checkbox" type="checkbox" id="<%= todo._id %>" onchange="toggleStrikethrough()">
                             <label class="form-check-label" for="<%= todo._id %>" id="label"><%= todo.name %></label>
                         </div>
 

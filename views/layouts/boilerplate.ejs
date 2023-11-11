@@ -44,16 +44,19 @@
             })
         })()
 
-        function toggleStrikethrough() {
-            var checkbox = document.querySelectorAll('');
-            var label = document.querySelector('#label');
+    function toggleStrikethrough() {
+        var checkboxes = document.querySelectorAll('.checkbox');
+
+        checkboxes.forEach(function (checkbox) {
+            var label = document.querySelector('[for="' + checkbox.id + '"]');
 
             if (checkbox.checked) {
                 label.classList.add('strikethrough');
             } else {
                 label.classList.remove('strikethrough');
             }
-        }
+    });
+}
     </script>
 </body>
 
