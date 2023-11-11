@@ -1,28 +1,35 @@
 <% layout('layouts/boilerplate') %>
-
     <h1 class="text-center">Welcome to your To-Do List</h1>
 
     <div class="container">
-        <div class="mb-5 row">
-            <h2 class="mb-3">Tasks</h2>
-            <ul class="list-group"></ul>
-                <% for (let todo of todos) { %>
-                    <li class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="" id="<%= todo._id %>" >
-                        <label class="form-check-label" for="<%= todo._id %>"><%= todo.name %></label>
-                    </li>
-                <% } %>
-            </ul>
-        </div>
-
         <div>
-            <h2>Create a task</h2>
+            <h2>Create Task</h2>
 
             <form action="/todos" method="POST">
                 <div class="mb-3 ">
                     <input type="text" name="name" class="form-control" id="task" aria-describedby="task" placeholder="Task Name">
                 </div>
-                <button class="btn btn-primary">Create</button>
+                <button class="btn btn-primary mb-3">Create</button>
             </form>
+        </div>
+
+        <div class="mb-5 row">
+            <h2 class="mb-3">Your Tasks</h2>
+            <ul class="list-group"></ul>
+                <% for (let todo of todos) { %>
+                    <li class="row">
+                        <div class="col">
+                            <input class="form-check-input me-1" type="checkbox" value="" id="<%= todo._id %>" onchange="toggleStrikethrough()" >
+                            <label class="form-check-label" for="<%= todo._id %>" id="label"><%= todo.name %></label>
+                        </div>
+
+                        <div class="col d-flex justify-content-end">
+                            <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
         </div>
     </div>
