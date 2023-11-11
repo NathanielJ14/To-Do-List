@@ -7,7 +7,7 @@
 
             <form action="/todos" method="POST">
                 <div class="mb-3 ">
-                    <input type="text" name="name" class="form-control" id="task" aria-describedby="task" placeholder="Task Name">
+                    <input type="text" name="name" class="form-control" id="task" aria-describedby="task" placeholder="Task Name" required>
                 </div>
                 <button class="btn btn-primary mb-3">Create</button>
             </form>
@@ -18,7 +18,7 @@
             <ul class="list-group"></ul>
                 <% for (let todo of todos) { %>
                     <li class="d-flex flex-row justify-content-between mb-2">
-                        <div class="">
+                        <div>
                             <input class="form-check-input checkbox me-3 " type="checkbox" id="<%= todo._id %>" onchange="toggleStrikethrough()">
                             <label class="form-check-label fs-5" for="<%= todo._id %>" id="label"><%= todo.name %></label>
                         </div>
