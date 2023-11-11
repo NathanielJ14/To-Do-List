@@ -35,6 +35,12 @@ app.post('/todos', (async (req, res, next) => {
     res.redirect(`/`);
 }))
 
+app.delete('/todos/:id', (async (req, res) => {
+    const { id } = req.params;
+    await Todo.findByIdAndDelete(id);
+    res.redirect('/');
+}))
+
 app.listen(3000, () => {
     console.log('Serving on port 3000');
 })
