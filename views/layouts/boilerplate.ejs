@@ -61,10 +61,14 @@
 
     function colorChange() {
         var color = document.querySelector('#colorPick').value;
-        var button = document.querySelector('#colorButton');
         var background = document.querySelector('body')
-
         background.style.backgroundColor = color;
+    }
+
+    function colorTextChange() {
+        var color = document.querySelector('#colorPick').value;
+        var text = document.querySelector('body')
+        text.style.color = color;
     }
 
     </script>
